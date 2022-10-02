@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: rgb(61, 61, 61);
+}
+header {
+    padding: 10px 0;
+    background-color: rgb(34, 12, 68);
+    border-top: 3px solid black ;
+    border-bottom: 2px solid black;
+
+}
+.container {    
+    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    background-color: rgb(34, 12, 68);
+}
+
+.container h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    color: rgba(240, 248, 255, 0.641);
+    background-color: rgb(34, 12, 68);
+}
+
+main {
+    padding: 2px 0px;
+    background-color: black;
+}
+.linear {
+   padding: 80px;
+   background-image: url("./assets/istock-524554638.jpg");
+}
+.barras {
+    padding: 80px;
+    background-image: url("./assets/istock-524554638.jpg");
+}
+.ChartJS {
+    padding: 100px;
+    border:0 auto;
+    border-radius: 20px;
+    background-color: white;
+}
+</style>
+<body>
+    <header>
+
+<div class="container">
+
+    <h2>Gráfico Linear/Barras</h2>
+
+    </div>
+</div>
+
+</header>
+
+<main>
+<div class="linear">
+    <canvas id="myChart" class="ChartJS"></canvas>
+    
+</div>
+<div class="barras">
+    <canvas id="myChart2" class="ChartJS"></canvas>
+</div>
+
+</main>
+
+<footer>
+
+</footer>
+</body> 
+<script >
+    const labels = [
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Temperatura',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [30, 29, 28, 25, 22, 23],
+    },
+    {
+      label: 'Umidade',
+      backgroundColor: 'rgb(132, 99, 255)',
+      borderColor: 'rgb(132, 99, 255)',
+      data: [80, 82, 80, 85, 80, 83],
+    }
+]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {interection: {
+        mode:'chartJS'
+    }}
+  };
+
+  const labels2 = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+  ];
+
+  const data2 = {
+    labels: labels2,
+    datasets: [{
+      label: 'Temperatura',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [22, 24, 27, 23, 20, 18],
+    },
+    {
+      label: 'Umidade',
+      backgroundColor: 'rgb(132, 99, 255)',
+      borderColor: 'rgb(132, 99, 255)',
+      data: [90, 89, 93, 87, 88, 82],
+    }
+]
+  };
+
+  const config2 = {
+    type: 'bar',
+    data: data2,
+    options: {interection: {
+        mode:'chartJS2'
+    }}
+  };
+</script>
+<script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    const myChart2 = new Chart(
+      document.getElementById('myChart2'),
+      config2
+    );
+  </script>
+</html>
+
